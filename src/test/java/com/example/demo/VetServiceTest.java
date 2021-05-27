@@ -10,6 +10,9 @@ import java.util.List;
 
 ;
 
+import com.example.demo.vet.PetNotFoundException;
+import com.example.demo.vet.VetService;
+import com.example.demo.vet.Veterinario;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -89,18 +92,14 @@ public class VetServiceTest {
 	@Test
 	public void testUpdatePet() {
 
-
 		String NAME = "Sharon10";
 		String LAST = "Jenkins10";
 		long create_id = -1;
 
-
 		String UPNAME = "Sharon20";
 		String UPLAST = "Jenkins20";
 		Veterinario vet = new Veterinario(NAME,LAST);
-	
 
-	
 		logger.info(">" + vet);
 		Veterinario readVet = vetService.create(vet);
 		logger.info(">>" + readVet);
@@ -110,8 +109,6 @@ public class VetServiceTest {
 		// Prepare data for update
 		readVet.setName(UPNAME);
 		readVet.setLast(UPLAST);
-		
-
 		// Execute update
 		Veterinario upgradeVet = vetService.update(readVet);
 		logger.info(">>>>" + upgradeVet);
